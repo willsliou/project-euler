@@ -7,6 +7,10 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 
+Run:
+g++ multiples_of_3_and_5.cpp
+./a.out
+233168
 */
 
 #include <iostream>
