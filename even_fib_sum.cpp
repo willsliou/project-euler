@@ -26,7 +26,8 @@ using namespace std;
 // Series approach 4*(i-1) + (i-2)
 unsigned long long fib_dp_series(int n) {
     // Declare vector called dp
-    vector<int> dp = {0};
+    vector<int> dp(100, 0);
+    // dp.push_back(0);
     // Initialize first and second elements as 1 and 2
     dp[0] = 2;
     dp[1] = 8;
@@ -51,26 +52,26 @@ unsigned long long fib_dp_series(int n) {
 
 
 // Dynamic Progrmaming approach. Store last used.
-unsigned long long fib_dp(int n, unsigned long long &sum) {
-    // Declare vector called dp
-    vector<unsigned long long int> dp = {0};
-    // Initialize first and second elements as 1 and 2
-    dp[0] = 1;
-    dp[1] = 2;
-    // Account for starting at index 2 in the for loop
-    sum = 2;
-    // Get elements in fib sequence
-    for (int i = 2; i < n; i++)
-    {
-        dp[i] = dp[i-1] + dp[i-2];
-        // If element calculated is even, add to sum
-        if (dp[i] % 2 == 0) {
-            sum += dp[i];
-        }
-        // cout << dp[i] << " ";
-    }
-    return sum;
-}
+// unsigned long long fib_dp(int n, unsigned long long &sum) {
+//     // Declare vector called dp
+//     vector<unsigned long long int> dp = {0};
+//     // Initialize first and second elements as 1 and 2
+//     dp[0] = 1;
+//     dp[1] = 2;
+//     // Account for starting at index 2 in the for loop
+//     sum = 2;
+//     // Get elements in fib sequence
+//     for (int i = 2; i < n; i++)
+//     {
+//         dp[i] = dp[i-1] + dp[i-2];
+//         // If element calculated is even, add to sum
+//         if (dp[i] % 2 == 0) {
+//             sum += dp[i];
+//         }
+//         // cout << dp[i] << " ";
+//     }
+//     return sum;
+// }
 
 // Naive Approach
 int fib_naive(int n, unsigned long long &sum) {
@@ -87,7 +88,7 @@ int fib_naive(int n, unsigned long long &sum) {
 int main() {
     // 4 000 000
     int n = 4000000;
-//    unsigned long long sum = 0;
+   unsigned long long sum = 0;
     // cout << fib_naive(n, sum) << endl;
 //    cout << fib_dp(n, sum) << endl;
     cout << fib_dp_series(n) << endl;
